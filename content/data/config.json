@@ -1,0 +1,122 @@
+{
+    "type": "Config",
+    "favicon": "/images/favicon.svg",
+    "header": {
+        "logo": {
+            "altText": "altText of the image",
+            "caption": "Caption of the image",
+            "elementId": "",
+            "styles": {
+                "self": {
+                    "opacity": 100
+                }
+            },
+            "type": "ImageBlock",
+            "url": "/images/logo.svg"
+        },
+        "primaryLinks": [
+            {
+                "type": "Link",
+                "label": "Home",
+                "url": "/",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "All Names",
+                "url": "/search",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "Contact",
+                "url": "/contact",
+                "altText": ""
+            }
+        ],
+        "isSticky": true
+    },
+    "footer": {
+        "colors": "colors-c",
+        "logo": {
+            "altText": "altText of the image",
+            "caption": "Caption of the image",
+            "elementId": "",
+            "styles": {
+                "self": {
+                    "opacity": 100
+                }
+            },
+            "type": "ImageBlock",
+            "url": ""
+        },
+        "contacts": {
+            "title": "Contact details",
+            "phoneNumber": "800-900-1761",
+            "phoneAltText": "Our phone",
+            "emailAltText": "Our email",
+            "address": "3773 HOWARD HUGHES PKWY STE 500S, Las Vegas, NV, 89169 - 6014, USA",
+            "addressAltText": "Our address"
+        },
+        "copyrightText": "© **2022 Namestar** All rights reserved.",
+        "primaryLinks": [
+            {
+                "type": "Link",
+                "label": "Home",
+                "url": "/",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "All Names",
+                "url": "/search",
+                "altText": ""
+            },
+            {
+                "type": "Link",
+                "label": "FAQ",
+                "url": "/faq",
+                "altText": ""
+            }
+        ],
+        "socialLinks": [],
+        "legalLinks": [
+            {
+                "type": "Link",
+                "label": "Refund Policy",
+                "altText": "",
+                "url": "/refund-policy",
+                "showIcon": false,
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "elementId": ""
+            },
+            {
+                "type": "Link",
+                "label": "Privacy Policy",
+                "url": "/privacy"
+            },
+            {
+                "type": "Link",
+                "label": "Terms & Conditions",
+                "url": "/terms"
+            },
+            {
+                "label": "Cookie Policy",
+                "altText": "Cookie Policy",
+                "url": "/cookie-policy",
+                "showIcon": false,
+                "icon": "arrowRight",
+                "iconPosition": "right",
+                "elementId": "",
+                "type": "Link"
+            }
+        ],
+        "styles": {
+            "self": {
+                "width": "narrow",
+                "padding": ["pt-16", "pb-16", "pr-4", "pl-4"]
+            }
+        }
+    }
+}
