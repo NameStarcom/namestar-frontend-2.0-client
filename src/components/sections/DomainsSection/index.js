@@ -29,8 +29,6 @@ function mapMaxWidthStyles(width) {
 
 const DomainSection = (props) => {
 
-    console.log(props)
-
     // const all = JSON.parse(props.count)
 
     const filteredDomains = _.filter(props.domains, function (o) {

@@ -93,7 +93,6 @@ const MyList = ({ dataSource }) => {
 };
 
 const Search = () => {
-    console.log('props', data);
     const { rows, count, error, isLoading, setOffset, name, setName } = useMyState();
     const [allDomains, setAllDomains] = useState([]);
     const [curentPage, setCurrentPage] = useState(1);

@@ -56,7 +56,6 @@ export default function LandingSection(props) {
             }).then(async (res) => {
                 const a = await res.json();
                 setPageViews(a.views);
-                console.log(a);
             });
             
         };
@@ -164,8 +163,6 @@ export default function LandingSection(props) {
     // const { redirectToCheckout } = useShoppingCart();
     const [intervalValue, setIntervalValue] = useState(12);
     const [checkResponse, setCheckResponse] = useState([]);
-
-    console.log(checkResponse);
 
     const publishableKey = process.env.NEXT_STRIPE_API_PUBLIC;
     const stripePromise = loadStripe(publishableKey);
