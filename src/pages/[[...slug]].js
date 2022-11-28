@@ -45,7 +45,6 @@ export async function getStaticProps({ params }) {
         const response = await fetch(`${domainsUrl}/count`);
         const count = await response.text();
         const records = await res.json();
-        console.log(records.rows.length);
         const domains = map(records.rows, (domain) => {
             return {
                 id: domain.id,
