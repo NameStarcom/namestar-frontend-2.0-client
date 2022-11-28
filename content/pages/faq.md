@@ -54,7 +54,7 @@ sections:
         answer: >-
           No. When purchasing a brand from Namestar marketplace you will get the
           ownership rights to the domain name and logo design artwork that we
-          provide with it for Free without copyright.
+          provide with it for Free, without copyright.
       - question: Can I make my purchase in instalments?
         answer: >-
           Yes, we do accept instalment or lease to own option, plus you have
