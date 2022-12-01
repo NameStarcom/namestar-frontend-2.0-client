@@ -3,11 +3,14 @@ import Script from 'next/script';
 
 export default function useExternalScripts() {
     return (
-        <div>
-            <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
-
-            <Script strategy="lazyOnload">
-                {`
+      <div>
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+        <Script strategy="lazyOnload" src="https://challenges.cloudflare.com/turnstile/v0/api.js" />
+        <Script strategy="lazyOnload">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -15,12 +18,12 @@ export default function useExternalScripts() {
               page_path: window.location.pathname,
             });
                 `}
-            </Script>
-            <Script
-                id="google-analytics"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
+        </Script>
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
             var _hoid = _hoid || []; _hoid.push('ho_6nENk4YXpeFZ9W2S7Q0TArqHD8ChUB1wvGy5s3cuafmxJMK');
             var heyopath = (('https:' == document.location.protocol) ? 'https://www.heyoliver.com/webroot/ho-ui/v2/' :
             'http://www.heyoliver.com/webroot/ho-ui/v2/');
@@ -28,9 +31,9 @@ export default function useExternalScripts() {
             var heyospt = document.createElement('script'); heyospt.type = 'text/javascript';
             heyospt.async = true; heyospt.src = heyopath + 'ho2.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(heyospt, s);
-  `
-                }}
-            />
-        </div>
+  `,
+          }}
+        />
+      </div>
     );
 }

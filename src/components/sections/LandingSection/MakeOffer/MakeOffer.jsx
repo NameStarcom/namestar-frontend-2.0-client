@@ -51,165 +51,197 @@ const MakeOffer = (props) => {
     };
 
     return (
-        <>
-            <form>
-                <input
-                    className="placeholder-gray-600 block w-full px-4 py-4 mt-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
-                    type="number"
-                    placeholder={error && !passOffer ? 'Enter value: USD' : 'My offer in USD'}
-                    value={passOffer}
-                    required
-                    name="offer"
-                    onChange={handleChange}
-                />
-                <div className="relative mt-8">
-                    <div className="absolute -inset-4">
-                        <div
-                            className="w-full h-full mx-auto rounded-3xl opacity-30 blur-lg filter"
-                            style={{
-                                background: 'linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)'
-                            }}
-                        ></div>
-                    </div>
-                    <button
-                        type={error && !passOffer ? 'submit' : 'button'}
-                        onClick={submitHandler}
-                        class="flex relative items-center justify-center w-full px-8 py-4 mt-5 text-base font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 font-pj hover:bg-gray-600"
-                    >
-                        {error && offerError ? <p>Min Offer - ${props.minOffer}</p> : <p>Make Offer</p>}
-                        <BsArrowRight className="ml-3 w-6 h-6" />
-                    </button>
+      <>
+        <form>
+          <input
+            className="placeholder-gray-600 block w-full px-4 py-4 mt-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
+            type="number"
+            placeholder={
+              error && !passOffer ? "Enter value: USD" : "My offer in USD"
+            }
+            value={passOffer}
+            required
+            name="offer"
+            onChange={handleChange}
+          />
+          <div className="relative mt-8">
+            <div className="absolute -inset-4">
+              <div
+                className="w-full h-full mx-auto rounded-3xl opacity-30 blur-lg filter"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)",
+                }}
+              ></div>
+            </div>
+            <button
+              type={error && !passOffer ? "submit" : "button"}
+              onClick={submitHandler}
+              class="flex relative items-center justify-center w-full px-8 py-4 mt-5 text-base font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 font-pj hover:bg-gray-600"
+            >
+              {error && offerError ? (
+                <p>Min Offer - ${props.minOffer}</p>
+              ) : (
+                <p>Make Offer</p>
+              )}
+              <BsArrowRight className="ml-3 w-6 h-6" />
+            </button>
+          </div>
+        </form>
+        {showModal ? (
+          <div className="absolute bg-white p-8 h-full w-full top-0 left-0">
+            <div>
+              <div className="flex justify-between">
+                <div className="">
+                  <h2 className="font-extrabold text-gray-900 font-pj leading-tight text-xl">
+                    Your Offer: ${passOffer} USD
+                  </h2>
+                  <p className="mt-2 text-gray-900">For {props.title}</p>
                 </div>
-            </form>
-            {showModal ? (
-                <div className="absolute bg-white p-8 h-full w-full top-0 left-0">
+                <div onClick={closeModal}>
+                  <CgCloseO className="text-gray-900 w-6 h-6 cursor-pointer" />
+                </div>
+              </div>
+              <div className="mt-2">
+                <form action="https://submit-form.com/GbSDNsZP">
+                  <input
+                    type="hidden"
+                    value="https://namestar.com/"
+                    name="_redirect"
+                  />
+                  {/*Domain Hidden*/}
+                  <input type="hidden" value={props.title} name="domain" />
+                  <input
+                    type="hidden"
+                    value={`$${passOffer} USD`}
+                    name="offer"
+                  />
+                  {/*IP Hidden*/}
+                  <input type="hidden" value={info.ip.country} name="Country" />
+                  <input type="hidden" value={info.ip.city} name="City" />
+                  <input type="hidden" value={info.ip.ip} name="IP:" />
+                  <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-4">
                     <div>
-                        <div className="flex justify-between">
-                            <div className="">
-                                <h2 className="font-extrabold text-gray-900 font-pj leading-tight text-xl">Your Offer: ${passOffer} USD</h2>
-                                <p className="mt-2 text-gray-900">For {props.title}</p>
-                            </div>
-                            <div onClick={closeModal}>
-                                <CgCloseO className="text-gray-900 w-6 h-6 cursor-pointer" />
-                            </div>
-                        </div>
-                        <div className="mt-2">
-                            <form action="https://submit-form.com/GbSDNsZP">
-                                <input type="hidden" value="https://namestar.com/" name="_redirect" />
-                                {/*Domain Hidden*/}
-                                <input type="hidden" value={props.title} name="domain" />
-                                <input type="hidden" value={`$${passOffer} USD`} name="offer" />
-                                {/*IP Hidden*/}
-                                <input type="hidden" value={info.ip.country} name="Country" />
-                                <input type="hidden" value={info.ip.city} name="City" />
-                                <input type="hidden" value={info.ip.ip} name="IP:" />
-                                <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-4">
-                                    <div>
-                                        <div class="mt-4">
-                                            <input
-                                                type="text"
-                                                name="first_name"
-                                                id="first_name"
-                                                required
-                                                autoComplete="first-name first_name"
-                                                placeholder="First Name"
-                                                class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="mt-4">
-                                            <input
-                                                type="text"
-                                                name="last_name"
-                                                id="last_name"
-                                                required
-                                                autoComplete="given-name last_name"
-                                                placeholder="Last Name"
-                                                class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="mt-4">
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            autoComplete="email"
-                                            required
-                                            placeholder="Email address"
-                                            class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="mt-4">
-                                        <input
-                                            type="phone"
-                                            name="phone_number"
-                                            id="phone_number"
-                                            autoComplete="tel"
-                                            required
-                                            placeholder="Phone Number"
-                                            class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex items-center justify-between mt-4">
-                                        <label for="" class="text-base font-medium text-gray-900 font-pj">
-                                            {' '}
-                                            Do you represent a Company?{' '}
-                                        </label>
-                                    </div>
-                                    <div class="mt-4">
-                                        <input
-                                            type="text"
-                                            name="company_name"
-                                            id="company_name"
-                                            placeholder="Company Name"
-                                            class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
-                                        />
-                                    </div>
-                                </div>
+                      <div class="mt-4">
+                        <input
+                          type="text"
+                          name="first_name"
+                          id="first_name"
+                          required
+                          autoComplete="first-name first_name"
+                          placeholder="First Name"
+                          class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div class="mt-4">
+                        <input
+                          type="text"
+                          name="last_name"
+                          id="last_name"
+                          required
+                          autoComplete="given-name last_name"
+                          placeholder="Last Name"
+                          class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mt-4">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        autoComplete="email"
+                        required
+                        placeholder="Email address"
+                        class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mt-4">
+                      <input
+                        type="phone"
+                        name="phone_number"
+                        id="phone_number"
+                        autoComplete="tel"
+                        required
+                        placeholder="Phone Number"
+                        class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center justify-between mt-4">
+                      <label
+                        for=""
+                        class="text-base font-medium text-gray-900 font-pj"
+                      >
+                        {" "}
+                        Do you represent a Company?{" "}
+                      </label>
+                    </div>
+                    <div class="mt-4">
+                      <input
+                        type="text"
+                        name="company_name"
+                        id="company_name"
+                        placeholder="Company Name"
+                        class="block w-full px-4 py-4 text-gray-900 bg-white border focus:border-black focus:ring-1 focus:ring-black font-pj focus:outline-none rounded-xl"
+                      />
+                    </div>
+                  </div>
 
-                                <div class="relative flex items-center mt-4">
-                                    <div class="flex items-center h-5">
-                                        <input
-                                            type="checkbox"
-                                            name="terms"
-                                            id="terms"
-                                            required
-                                            onClick={handleClick}
-                                            checked={checked}
-                                            class="w-5 h-5 text-gray-900 border-gray-300 rounded focus:ring-gray-900"
-                                        />
-                                    </div>
+                  <div
+                    class="cf-turnstile"
+                    data-sitekey="0x4AAAAAAABbVrxmpirAyMcb"
+                  ></div>
 
-                                    <div class="ml-3 text-base">
-                                        <label for="terms" class="font-normal text-gray-900 font-pj">
-                                            {' '}
-                                            I agree to the{' '}
-                                            <Link href="/terms">
-                                                <a className="font-medium text-gray-700 text-base-content underline">Terms</a>
-                                            </Link>{' '}
-                                            &{' '}
-                                            <Link href="/privacy">
-                                                <a className="font-medium text-gray-700 text-base-content underline">Privacy Policy</a>
-                                            </Link>
-                                            .
-                                        </label>
-                                    </div>
-                                </div>
-                                <button
-                                    type="submit"
-                                    class="flex items-center justify-center w-full px-8 py-4 mt-5 text-base font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 font-pj hover:bg-gray-600"
-                                >
-                                    Send Offer
-                                </button>
-                                {/* <div>
+                  <div class="relative flex items-center mt-4">
+                    <div class="flex items-center h-5">
+                      <input
+                        type="checkbox"
+                        name="terms"
+                        id="terms"
+                        required
+                        onClick={handleClick}
+                        checked={checked}
+                        class="w-5 h-5 text-gray-900 border-gray-300 rounded focus:ring-gray-900"
+                      />
+                    </div>
+
+                    <div class="ml-3 text-base">
+                      <label
+                        for="terms"
+                        class="font-normal text-gray-900 font-pj"
+                      >
+                        {" "}
+                        I agree to the{" "}
+                        <Link href="/terms">
+                          <a className="font-medium text-gray-700 text-base-content underline">
+                            Terms
+                          </a>
+                        </Link>{" "}
+                        &{" "}
+                        <Link href="/privacy">
+                          <a className="font-medium text-gray-700 text-base-content underline">
+                            Privacy Policy
+                          </a>
+                        </Link>
+                        .
+                      </label>
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    class="flex items-center justify-center w-full px-8 py-4 mt-5 text-base font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 font-pj hover:bg-gray-600"
+                  >
+                    Send Offer
+                  </button>
+                  {/* <div>
                                     <label htmlFor="last_name" className="block text-sm font-medium text-gray-700 text-base-content">
                                         Email
                                     </label>
@@ -253,7 +285,7 @@ const MakeOffer = (props) => {
                                         />
                                     </div>
                                 </div> */}
-                                {/* <div className="sm:col-span-2">
+                  {/* <div className="sm:col-span-2">
                                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 text-base-content">
                                         Message
                                     </label>
@@ -267,7 +299,7 @@ const MakeOffer = (props) => {
                                         ></textarea>
                                     </div>
                                 </div> */}
-                                {/* <div className="sm:col-span-2">
+                  {/* <div className="sm:col-span-2">
                                     <div className="inline-flex space-x-1.5 items-center justify-start">
                                         <input type="checkbox" className="checkbox checkbox-md" required onClick={handleClick} checked={checked} />
                                         <div className="ml-3">
@@ -290,14 +322,14 @@ const MakeOffer = (props) => {
                                         Send Offer
                                     </button>
                                 </div> */}
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            ) : (
-                ''
-            )}
-        </>
+                </form>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </>
     );
 };
 
