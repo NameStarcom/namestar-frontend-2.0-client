@@ -164,7 +164,8 @@ export default function LandingSection(props) {
     const [intervalValue, setIntervalValue] = useState(12);
     const [checkResponse, setCheckResponse] = useState([]);
 
-    const publishableKey = process.env.NEXT_STRIPE_API_PUBLIC;
+    const publishableKey =
+      "pk_live_51KjUXYAH23kN7e1JYDT9cPimTA08l47Issg1xyCUcfXQXyn12WzAVjO1fDrI1qHJMmskHYgobYdrLKl5cZana6FC00mJ0BNB02";
     const stripePromise = loadStripe(publishableKey);
 
     // const stripeUrl = `${url}create-checkout-session/?&mode=${
