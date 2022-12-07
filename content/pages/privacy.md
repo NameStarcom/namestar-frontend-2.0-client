@@ -276,7 +276,7 @@ sections:
       or if you would like to make a complaint, please contact us by e-mail
       at\_[info@namestar.com ](mailto:info@namestar.com)or by mail using the
       details provided below: 3773 HOWARD HUGHES PKWY STE 500S, Las Vegas, NV,
-      89169 - 6014, USA
+      89169 - 6014, USA.
     styles:
       self:
         height: auto
