@@ -19,7 +19,7 @@ function DomainPage(props) {
 }
 
 export const getServerSideProps = async (context) => {
-    const slug = context.params.domainSlug.toLowerCase();
+    const slug = context.params.domainSlug;
     const res = await fetch(`${domainsUrl}/${slug}`);
     const data = await sourcebitDataClient.getData();
     // /demo comes from content/pages/demo.md for dynamic data
